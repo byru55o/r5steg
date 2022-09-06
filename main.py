@@ -24,21 +24,6 @@ def bin2str(bi):
     return ''.join([chr(int(x, 2)) for x in bi.split(' ')])
 
 
-init_str = "Initial String"
-secret_msg = "Encoded Message"
-print(init_str)
-print(secret_msg)
-print("[Secret Message encoded in binary]: " + str2bin(secret_msg))
-print("[Encoded Message hidden]: >" + bin2hid(str2bin(secret_msg)) + "<")
-print("[Encoded Message hidden wrapped]: >" + wrap(bin2hid(str2bin(secret_msg))) + "<")
-result = init_str[0] + wrap(bin2hid(str2bin(secret_msg))) + init_str[1:len(init_str)]
-print("[Hidden Message inside initial string]: " + result)
-
-print("[Unwrapped encoded message hidden]: >" + unwrap(result) + "<")
-print("[Encoded message in binary]: " + hid2bin(unwrap(result)))
-print("[Secret message revealed]: " + bin2str(hid2bin(unwrap(result))))
-
-
 while True:
     print('''
     [1]: Hide a message.
