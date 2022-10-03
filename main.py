@@ -33,12 +33,15 @@ while True:
     if ch == "1":
         secret_msg = input("Enter secret message: ")
         init_str = input("Enter text where the message should be hidden: ")
-        result = init_str[0] + wrap(bin2hid(str2bin(secret_msg))) + init_str[1:len(init_str)]
+        result = init_str[:(int(len(init_str) / 2))] + wrap(bin2hid(str2bin(secret_msg))) + \
+                 init_str[int(len(init_str) / 2):]
         print("[Hidden Message inside initial string]: " + result)
         print("Now feel free to copy the result and paste it where you want!")
         print("_____________________________________________________________\n")
-
     elif ch == "2":
         result = input("Enter text with hidden message: ")
         print("[Secret message revealed]: " + bin2str(hid2bin(unwrap(result))))
         print("_____________________________________________________________\n")
+    elif ch == "0":
+        print("Goodbye!")
+        quit()
