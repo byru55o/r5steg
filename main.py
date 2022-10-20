@@ -1,3 +1,6 @@
+from pyperclip import copy, PyperclipException
+
+
 def str2bin(st):
     return ' '.join(format(ord(x), 'b') for x in st)
 
@@ -36,7 +39,11 @@ while True:
         result = init_str[:(int(len(init_str) / 2))] + wrap(bin2hid(str2bin(secret_msg))) + \
                  init_str[int(len(init_str) / 2):]
         print("[Hidden Message inside initial string]: " + result)
-        print("Now feel free to copy the result and paste it where you want!")
+        try:
+            copy(result)
+            print("The result has been copied to clipboard!")
+        except PyperclipException:
+            print("The result couldn't be copied to clipboard :(, missing xclip")
         print("_____________________________________________________________\n")
     elif ch == "2":
         result = input("Enter text with hidden message: ")
