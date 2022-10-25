@@ -1,3 +1,4 @@
+import readline
 from pyperclip import copy, PyperclipException
 
 
