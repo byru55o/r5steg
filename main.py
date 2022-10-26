@@ -43,8 +43,8 @@ while True:
         try:
             copy(result)
             print("The result has been copied to clipboard!")
-        except PyperclipException:
-            print("The result couldn't be copied to clipboard :(, missing xclip")
+        except PyperclipException as error:
+            print(error)
         print("_____________________________________________________________\n")
     elif ch == "2":
         result = input("Enter text with hidden message: ")
