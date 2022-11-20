@@ -13,7 +13,7 @@ This piece of free software is currently on BETA phase, feel free to report any 
 - Add compression (maybe using trinary, quaternary, or more bases instead of binary)
 - Add encryption with passwords
 ### ZW characters used:
-future characters are marked with [*]
+characters to be used in the future are marked with [*]
 - `U+200C \xe2\x80\x8c	ZERO WIDTH NON-JOINER` for ' '
 - `U+2060 \xe2\x81\xa0	WORD JOINER` for '0'
 - `U+200B \xe2\x80\x8b	ZERO WIDTH SPACE` for '1'
