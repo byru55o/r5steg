@@ -12,6 +12,16 @@ This piece of free software is currently on BETA phase, feel free to report any 
 - Support decoding multiple messages at once [DONE]
 - Add compression (maybe using trinary, quaternary, or more bases instead of binary)
 - Add encryption with passwords
+### ZW characters used:
+future characters are marked with [*]
+- `U+200C \xe2\x80\x8c	ZERO WIDTH NON-JOINER` for ' '
+- `U+2060 \xe2\x81\xa0	WORD JOINER` for '0'
+- `U+200B \xe2\x80\x8b	ZERO WIDTH SPACE` for '1'
+- *`U+200D \xe2\x80\x8d	ZERO WIDTH JOINER` for '2'
+- *`U+200E \xe2\x80\x8e	LEFT-TO-RIGHT MARK` for '3'
+- *`U+200F \xe2\x80\x8f	RIGHT-TO-LEFT MARK` for '4'
+- *`U+2028 \xe2\x80\xa8  LINE SEPARATOR` for '5'
+- *`U+2029 \xe2\x80\xa9  PARAGRAPH SEPARATOR` for '6'
 ### Feedback
 Im up to any kind of feedback!
 
