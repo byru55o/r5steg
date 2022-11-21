@@ -20,8 +20,9 @@ characters to be used in the future are marked with [*]
 - *`U+200D \xe2\x80\x8d	ZERO WIDTH JOINER` for '2'
 - *`U+200E \xe2\x80\x8e	LEFT-TO-RIGHT MARK` for '3'
 - *`U+200F \xe2\x80\x8f	RIGHT-TO-LEFT MARK` for '4'
-- *`U+2028 \xe2\x80\xa8  LINE SEPARATOR` for '5'
-- *`U+2029 \xe2\x80\xa9  PARAGRAPH SEPARATOR` for '6'
+- *`U+2028 \xe2\x80\xa8 LINE SEPARATOR` for '5'
+- *`U+2029 \xe2\x80\xa9 PARAGRAPH SEPARATOR` for '6'
+- `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
 ### Feedback
 Im up to any kind of feedback!
 
