@@ -10,7 +10,7 @@ Text in text steganography program using zero width space characters.
 This piece of free software is currently on BETA phase, feel free to report any bugs or contribute with a PR!
 ### To do list:
 - Support decoding multiple messages at once [DONE]
-- Add compression (maybe using trinary, quaternary, or more bases instead of binary)
+- Add compression (currently working on changing to hexadecimal base) (characters used are listed below)
 - Add encryption with passwords
 ### ZW characters used:
 characters to be used in the future are marked with [*]
@@ -22,6 +22,15 @@ characters to be used in the future are marked with [*]
 - *`U+200F \xe2\x80\x8f	RIGHT-TO-LEFT MARK` for '4'
 - *`U+2028 \xe2\x80\xa8 LINE SEPARATOR` for '5'
 - *`U+2029 \xe2\x80\xa9 PARAGRAPH SEPARATOR` for '6'
+- *`U+180E \xe1\xa0\x8e MONGOLIAN VOWEL SEPARATOR` for '7'
+- *`U+202A \xe2\x80\xaa LEFT-TO-RIGHT EMBEDDING` for '8'
+- *`U+202C \xe2\x80\xac POP DIRECTIONAL FORMATTING` for '9'
+- *`U+202D \xe2\x80\xad LEFT-TO-RIGHT OVERRIDE` for 'a'
+- *`U+2062 \xe2\x81\xa2 INVISIBLE TIMES` for 'b'
+- *`U+2063⁣ \xe2\x81\xa3 INVISIBLE SEPARATOR` for 'c'
+- *`U+2064 \xe2\x81\xa4 INVISIBLE PLUS` for 'd'
+- *`U+2065 \xe2\x81\xa5 Undefined` for 'e'
+- *`U+2066 \xe2\x81\xa6 LEFT-TO-RIGHT ISOLATE` for 'f'
 - `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
 ### Feedback
 Im up to any kind of feedback!
