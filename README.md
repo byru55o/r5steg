@@ -20,7 +20,7 @@ characters to be used in the future are marked with [*]
 - *`U+200E \xe2\x80\x8e	LEFT-TO-RIGHT MARK` for '3'
 - *`U+200F \xe2\x80\x8f	RIGHT-TO-LEFT MARK` for '4'
 - *`U+200C \xe2\x80\x8c	ZERO WIDTH NON-JOINER` for '5'
-- *`U+2029 \xe2\x80\xa9 PARAGRAPH SEPARATOR` for '6'
+- *`U+2061 \xe2\x81\xa1 FUNCTION APPLICATION` for '6'
 - *`U+180E \xe1\xa0\x8e MONGOLIAN VOWEL SEPARATOR` for '7'
 - *`U+202A \xe2\x80\xaa LEFT-TO-RIGHT EMBEDDING` for '8'
 - *`U+202C \xe2\x80\xac POP DIRECTIONAL FORMATTING` for '9'
