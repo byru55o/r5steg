@@ -33,6 +33,7 @@ characters to be used in the future are marked with [*]
 - `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
 ### Feedback
 Im up to any kind of feedback!
+write me ﻿᠎‍‎‌‎‌‏⁠⁡‏⁡‬᠎‎᠎‍⁡⁦⁡⁦᠎‏‍⁥⁡⁦᠎‍⁡᠎﻿an email!
 
 # Requirements
 - **Python 3** (3.10.8 was used but should work with any)
