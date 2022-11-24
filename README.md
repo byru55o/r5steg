@@ -32,7 +32,7 @@ characters to be used in the future are marked with [*]
 - `U+2066 \xe2\x81\xa6 LEFT-TO-RIGHT ISOLATE` for 'f'
 - `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
 ### Feedback
-Im up to any kind of feedback!
+Im up to any kind of feedback!  
 write me ﻿᠎‍‎‌‎‌‏⁠⁡‏⁡‬᠎‎᠎‍⁡⁦⁡⁦᠎‏‍⁥⁡⁦᠎‍⁡᠎﻿an email!
 
 # Requirements
