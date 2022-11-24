@@ -2,8 +2,8 @@
 Text in text steganography program using zero width space characters.
 
 # Usage
-- Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)  
-- Execute `main.py`: `python3 main.py`
+- Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
+- Execute `main.py`: `python3 main.py` or `./main.py`
 
 
 # Under development
@@ -35,6 +35,6 @@ characters to be used in the future are marked with [*]
 Im up to any kind of feedback!
 
 # Requirements
-- **Python 3** (3.10.8 was used but should work with any) 
-- [**pyperclip**](https://pyperclip.readthedocs.io/en/latest/) for auto copy-to-clipboard. 
+- **Python 3** (3.10.8 was used but should work with any)
+- [**pyperclip**](https://pyperclip.readthedocs.io/en/latest/) for auto copy-to-clipboard.
 - [**readline**](https://docs.python.org/3/library/readline.html) for input usability.
