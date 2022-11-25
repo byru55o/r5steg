@@ -3,7 +3,7 @@ Text in text steganography program using zero width space characters.
 
 # Usage
 - Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
-- Execute `main.py`: `python3 main.py` or `./main.py`
+- Execute `r5steg.py`: `python3 r5steg.py` or `./r5steg.py`
 
 
 # Under development
@@ -13,7 +13,6 @@ This piece of free software is currently on BETA phase, feel free to report any 
 - ~~Add compression~~ (characters used are listed below)
 - Add encryption with passwords
 ### ZW characters used:
-characters to be used in the future are marked with [*]
 - `U+2060 \xe2\x81\xa0	WORD JOINER` for '0'
 - `U+200B \xe2\x80\x8b	ZERO WIDTH SPACE` for '1'
 - `U+200D \xe2\x80\x8d	ZERO WIDTH JOINER` for '2'
@@ -32,7 +31,7 @@ characters to be used in the future are marked with [*]
 - `U+2066 \xe2\x81\xa6 LEFT-TO-RIGHT ISOLATE` for 'f'
 - `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
 ### Feedback
-Im up to any kind of feedback!  
+Im up to any kind of feedback!
 write me ﻿᠎‍‎‌‎‌‏⁠⁡‏⁡‬᠎‎᠎‍⁡⁦⁡⁦᠎‏‍⁥⁡⁦᠎‍⁡᠎﻿an email!
 
 # Requirements
