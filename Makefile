@@ -1,0 +1,18 @@
+PROGRAM_NAME=r5steg
+#VERSION=0.1
+
+PROGRAM_DIR=/usr/bin
+DATA_DIR=/usr/share
+LICENSE_DIR=$(DATA_DIR)/licenses
+DOC_DIR=$(DATA_DIR)/doc
+
+
+install:
+	install -Dm755 r5steg.py $(PROGRAM_DIR)/$(PROGRAM_NAME)
+	install -Dm644 LICENSE $(LICENSE_DIR)/$(PROGRAM_NAME)/LICENSE
+	install -Dm644 README.md $(DOC_DIR)/$(PROGRAM_NAME)/README.md
+
+uninstall:
+	rm -Rf $(PROGRAM_DIR)/$(PROGRAM_NAME)
+	rm -Rf $(LICENSE_DIR)/$(PROGRAM_NAME)
+	rm -Rf $(DOC_DIR)/$(PROGRAM_NAME)
