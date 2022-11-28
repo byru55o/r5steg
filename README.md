@@ -4,6 +4,10 @@ Text in text steganography program using zero width space characters.
 # Usage
 - Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
 - Execute `r5steg.py`: `python3 r5steg.py` or `./r5steg.py`
+## Installation
+```sudo make install```
+or to uninstall:
+```sudo make uninstall```
 
 
 # Under development
