@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
-import readline, pyperclip
+import binascii, readline, pyperclip, scrypt
+from Crypto.Cipher import AES
+
+salt = b'\xdc\xebh\x132\x7f\x8cD\xb1U\x1bI\xfa\x1d/i'
 
 zwc = [b'\xe2\x81\xa0'.decode("utf-8"), b'\xe2\x80\x8b'.decode("utf-8"), b'\xe2\x80\x8d'.decode("utf-8"),
        b'\xe2\x80\x8e'.decode("utf-8"), b'\xe2\x80\x8f'.decode("utf-8"), b'\xe2\x80\x8c'.decode("utf-8"),
@@ -10,8 +13,11 @@ zwc = [b'\xe2\x81\xa0'.decode("utf-8"), b'\xe2\x80\x8b'.decode("utf-8"), b'\xe2\
        b'\xe2\x81\xa6'.decode("utf-8")]
 
 
-def str2hex(st):
-    return st.encode('utf-8').hex()
+def encrypt(m, pwd):
+    key = scrypt.hash(pwd, salt, N=16384, r=8, p=1, buflen=32)
+    aes_cipher = AES.new(key, AES.MODE_GCM)
+    ciphertext = aes_cipher.encrypt(m)
+    return (binascii.hexlify(aes_cipher.nonce) + binascii.hexlify(ciphertext)).decode('utf-8')
 
 
 def hex2hid(he):
@@ -40,11 +46,12 @@ def hid2hex(hi):
     return arr
 
 
-def hex2str(he):
-    arr = []
-    for m in he:
-        arr.append(bytearray.fromhex(m).decode('utf-8'))
-    return arr
+def decrypt(m, pwd):
+    nonce = binascii.unhexlify(bytes(m, 'utf-8'))[:16]
+    ciphertext = binascii.unhexlify(bytes(m, 'utf-8'))[16:]
+    key = scrypt.hash(pwd, salt, N=16384, r=8, p=1, buflen=32)
+    aes_cipher = AES.new(key, AES.MODE_GCM, nonce)
+    return str(aes_cipher.decrypt(ciphertext), 'utf-8')
 
 
 while True:
@@ -56,7 +63,8 @@ while True:
     if ch == "1":
         secret_msg = input("Enter secret message: ")
         init_str = input("Enter text where the message should be hidden: ")
-        result = init_str[:(int(len(init_str) / 2))] + wrap(hex2hid(str2hex(secret_msg))) + \
+        password = bytes(input("Enter password for encryption: "), 'utf-8')
+        result = init_str[:(int(len(init_str) / 2))] + wrap(hex2hid(encrypt(bytes(secret_msg, 'utf-8'), password))) + \
             init_str[int(len(init_str) / 2):]
         print("[Hidden Message inside initial string]: " + result)
         try:
@@ -68,11 +76,15 @@ while True:
         print("_" * 50)
     elif ch == "2":
         result = input("Enter text with hidden message: ")
+        password = bytes(input("Enter password for encryption: "), 'utf-8')
         print("\n[Secret message(s) revealed]:\n")
-        for msg in hex2str(hid2hex(unwrap(result))):
-            print("    " + msg)
+        for msg in hid2hex(unwrap(result)):
+            try:
+                print("    " + decrypt(msg, password))
+            except UnicodeDecodeError as e:
+                print("    Couldn't decrypt message (wrong message/password?):")
+                print(e)
             print("_" * 50)
     elif ch == "0":
         print("Goodbye!")
         quit()
-
