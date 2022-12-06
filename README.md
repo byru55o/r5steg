@@ -15,7 +15,7 @@ This piece of free software is currently on BETA phase, feel free to report any 
 ### To do list:
 - ~~Support decoding multiple messages at once~~
 - ~~Add compression~~ (characters used are listed below)
-- Add encryption with passwords
+- ~~Add encryption with passwords~~
 ### ZW characters used:
 - `U+2060 \xe2\x81\xa0	WORD JOINER` for '0'
 - `U+200B \xe2\x80\x8b	ZERO WIDTH SPACE` for '1'
@@ -35,8 +35,8 @@ This piece of free software is currently on BETA phase, feel free to report any 
 - `U+2066 \xe2\x81\xa6 LEFT-TO-RIGHT ISOLATE` for 'f'
 - `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
 ### Feedback
-Im up to any kind of feedback!
-write me ﻿᠎‍‎‌‎‌‏⁠⁡‏⁡‬᠎‎᠎‍⁡⁦⁡⁦᠎‏‍⁥⁡⁦᠎‍⁡᠎﻿an email!
+Im up to any kind of feedback!  
+Write me an email!
 
 # Requirements
 - **Python 3** (3.10.8 was used but should work with any)
