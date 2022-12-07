@@ -1,44 +1,93 @@
-# r5steg
-Text in text steganography program using zero width space characters.
-
-# Usage
-- Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
-- Execute `r5steg.py`: `python3 r5steg.py` or `./r5steg.py`
+# r5steg ![License](https://img.shields.io/github/license/byru55o/r5steg "License") ![Contributors](https://img.shields.io/github/contributors/byru55o/r5steg "Contributors") ![Size](https://img.shields.io/github/repo-size/byru55o/r5steg "Size")
+Encrypted text in text steganography program using zero width space characters.
+It hides and encrypts a message in between plain text using zero-width characters which are invisible in most browsers and interfaces.
 ## Installation
-```sudo make install```
-or to uninstall:
+- Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
+- Clone the repository and navigate to it's directory:
+  ```bash
+  git clone https://github.com/byru55o/r5steg.git && cd r5steg
+  ```
+- Install it with GNU make:
+  ```bash
+  sudo make install
+  ```
+  or to uninstall:
 ```sudo make uninstall```
-
-
-# Under development
-This piece of free software is currently on BETA phase, feel free to report any bugs or contribute with a PR!
-### To do list:
-- ~~Support decoding multiple messages at once~~
-- ~~Add compression~~ (characters used are listed below)
-- ~~Add encryption with passwords~~
-### ZW characters used:
-- `U+2060 \xe2\x81\xa0	WORD JOINER` for '0'
-- `U+200B \xe2\x80\x8b	ZERO WIDTH SPACE` for '1'
-- `U+200D \xe2\x80\x8d	ZERO WIDTH JOINER` for '2'
-- `U+200E \xe2\x80\x8e	LEFT-TO-RIGHT MARK` for '3'
-- `U+200F \xe2\x80\x8f	RIGHT-TO-LEFT MARK` for '4'
-- `U+200C \xe2\x80\x8c	ZERO WIDTH NON-JOINER` for '5'
-- `U+2061 \xe2\x81\xa1 FUNCTION APPLICATION` for '6'
-- `U+180E \xe1\xa0\x8e MONGOLIAN VOWEL SEPARATOR` for '7'
-- `U+202A \xe2\x80\xaa LEFT-TO-RIGHT EMBEDDING` for '8'
-- `U+202C \xe2\x80\xac POP DIRECTIONAL FORMATTING` for '9'
-- `U+202D \xe2\x80\xad LEFT-TO-RIGHT OVERRIDE` for 'a'
-- `U+2062 \xe2\x81\xa2 INVISIBLE TIMES` for 'b'
-- `U+2063⁣ \xe2\x81\xa3 INVISIBLE SEPARATOR` for 'c'
-- `U+2064 \xe2\x81\xa4 INVISIBLE PLUS` for 'd'
-- `U+2065 \xe2\x81\xa5 Undefined` for 'e'
-- `U+2066 \xe2\x81\xa6 LEFT-TO-RIGHT ISOLATE` for 'f'
-- `U+FEFF \xef\xbb\xbf  ZERO WIDTH NO-BREAK SPACE` for wrapping
-### Feedback
-Im up to any kind of feedback!  
-Write me an email!
+  
+### Usage
+- Execute the program: `r5steg` or, if you didn't install: `./r5steg.py` or `python3 r5steg.py`
+- To encrypt and hide a message: select option **[1]**, enter message to hide,
+  enter the plain text you want to show and the password for the encryption. The resulting string,
+  which is copied to the clipboard contains your secret message which you can decrypt using option **[2]**.
+- To decrypt and unhide a message in between plain text: select option **[2]**, enter the message and the password.
 
 # Requirements
 - **Python 3** (3.10.8 was used but should work with any)
 - [**pyperclip**](https://pyperclip.readthedocs.io/en/latest/) for auto copy-to-clipboard.
 - [**readline**](https://docs.python.org/3/library/readline.html) for input usability.
+
+# How does it work?
+First of all, the message is encrypted:
+
+### AES in GCM mode:
+- The key is derived using the password and salt
+- The IV or nonce is randomized on each encryption and stored alongside the cipher text
+
+Using the key and the initial vector, the plain text becomes cipher text.
+The salt **is not** transferred with the ciphertext, so it has to be a fixed value (I used random bytes).
+That's why, for optimal security, it should be changed and stored safely,
+because it has to remain the same value encrypting and decrypting.
+
+#### To change the salt:
+- Find the salt variable at the beginning of the code:
+```python
+salt = b'\xdc\xebh\x132\x7f\x8cD\xb1U\x1bI\xfa\x1d/i'
+```
+- Replace its value with 16 different random bytes (e.g., using urandom function):
+```python
+python3
+>>> import os
+>>> os.urandom(16)
+b'\xfaFp6\x0e[\x9e\x9dKM\x80^O\x99\x92\xf9'
+```
+After the encryption, the message looks like this: `f6989326b5198f881e634da623f1af5e2a632540`.  
+The first 32 hex. characters represent the initial vector used, the rest represent the ciphertext,
+which weights the same as the secret message.
+This hex code is later hidden using the following zero width unicode characters:
+
+### Characters used:
+| Unicode code point | UTF-8 (in literal) | Name | hex to replace |
+| --- | --- | --- | --- |
+| U+2060 | \xe2\x81\xa0 | WORD JOINER | 0 |
+| U+200B | \xe2\x80\x8b | ZERO WIDTH SPACE | 1 |
+| U+200D | \xe2\x80\x8d | ZERO WIDTH JOINER | 2 |
+| U+200E | \xe2\x80\x8e | LEFT-TO-RIGHT MARK | 3 |
+| U+200F | \xe2\x80\x8f | RIGHT-TO-LEFT MARK | 4 |
+| U+200C | \xe2\x80\x8c | ZERO WIDTH NON-JOINER | 5 |
+| U+2061 | \xe2\x81\xa1 | FUNCTION APPLICATION | 6 |
+| U+180E | \xe1\xa0\x8e | MONGOLIAN VOWEL SEPARATOR | 7 |
+| U+202A | \xe2\x80\xaa | LEFT-TO-RIGHT EMBEDDING | 8 |
+| U+202C | \xe2\x80\xac | POP DIRECTIONAL FORMATTING | 9 |
+| U+202D | \xe2\x80\xad | LEFT-TO-RIGHT OVERRIDE | a |
+| U+2062 | \xe2\x81\xa2 | INVISIBLE TIMES | b |
+| U+2063 | \xe2\x81\xa3 | INVISIBLE SEPARATOR | c |
+| U+2064 | \xe2\x81\xa4 | INVISIBLE PLUS | d |
+| U+2065 | \xe2\x81\xa5 | Undefined | e |
+| U+2066 | \xe2\x81\xa6 | LEFT-TO-RIGHT ISOLATE | f |
+| U+FEFF | \xef\xbb\xbf | ZERO WIDTH NO-BREAK SPACE | [*]for wrapping
+
+The last one in the table, is the *wrapper* character,
+it's added at the beginning and at the end of the current hidden hex code.
+
+#### Once the steganography is completed, the invisible characters are inserted in between the plain text and everything is copied to the clipboard.
+The message can now be transferred securely without anyone to notice and, even if they notice,
+it still cannot be decrypted without the password and salt!
+
+## For the decryption:
+The reversed process is applied, with the difference that it manages multiple messages at once, if they exist.
+However, take in mind the same password and salt will be used for every message.
+In case of failure the program will prompt the error for every message individually.
+
+# Feedback
+I'm up to any kind of feedback, questions, feature requests, etc.  
+Just write [an email](mailto:r55@disroot.org)!
