@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
-import binascii, readline, pyperclip, scrypt
+import binascii, readline, pyperclip, scrypt, gettext
 from Crypto.Cipher import AES
+
+t = gettext.translation('r5steg', '/usr/share/locale/', fallback=True,)
+_ = t.gettext
 
 salt = b'\xdc\xebh\x132\x7f\x8cD\xb1U\x1bI\xfa\x1d/i'
 
@@ -55,36 +58,36 @@ def decrypt(m, pwd):
 
 
 while True:
-    print('''
-    [1]: Hide a message.
-    [2]: View hidden message inside text.
-    ''')
+    print()
+    print(_("    [1]: Hide a message."))
+    print(_("    [2]: View hidden message inside text."))
+    print()
     ch = input("r5steg:~$ ")
     if ch == "1":
-        secret_msg = input("Enter secret message: ")
-        init_str = input("Enter text where the message should be hidden: ")
-        password = bytes(input("Enter password for encryption: "), 'utf-8')
+        secret_msg = input(_("Enter secret message: "))
+        init_str = input(_("Enter text where the message should be hidden: "))
+        password = bytes(input(_("Enter password for encryption: ")), 'utf-8')
         result = init_str[:(int(len(init_str) / 2))] + wrap(hex2hid(encrypt(bytes(secret_msg, 'utf-8'), password))) + \
             init_str[int(len(init_str) / 2):]
-        print("[Hidden Message inside initial string]: " + result)
+        print(_("[Hidden Message inside initial string]: ") + result)
         try:
             pyperclip.copy(result)
-            print("The result has been copied to clipboard!")
+            print(_("The result has been copied to clipboard!"))
         except pyperclip.PyperclipException as e:
             print(e)
-            print("The result couldn't be copied to clipboard :(, (maybe) missing xclip")
+            print(_("The result couldn't be copied to clipboard :(, (maybe) missing xclip"))
         print("_" * 50)
     elif ch == "2":
-        result = input("Enter text with hidden message: ")
-        password = bytes(input("Enter password for encryption: "), 'utf-8')
-        print("\n[Secret message(s) revealed]:\n")
+        result = input(_("Enter text with hidden message: "))
+        password = bytes(input(_("Enter password for encryption: ")), 'utf-8')
+        print(_("\n[Secret message(s) revealed]:\n"))
         for msg in hid2hex(unwrap(result)):
             try:
                 print("    " + decrypt(msg, password))
             except UnicodeDecodeError as e:
-                print("    Couldn't decrypt message (wrong message/password?):")
+                print(_("    Couldn't decrypt message (wrong message/password?):"))
                 print(e)
             print("_" * 50)
     elif ch == "0":
-        print("Goodbye!")
+        print(_("Goodbye!"))
         quit()
