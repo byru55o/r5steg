@@ -25,6 +25,9 @@ It hides and encrypts a message in between plain text using zero-width character
 - **Python 3** (3.10.8 was used but should work with any)
 - [**pyperclip**](https://pyperclip.readthedocs.io/en/latest/) for auto copy-to-clipboard.
 - [**readline**](https://docs.python.org/3/library/readline.html) for input usability.
+- [**pycryptodome**](https://www.pycryptodome.org/) for encryption.
+- [**scrypt**](https://pypi.org/project/scrypt/) for key derivation.
+- [**gettext**](https://pypi.org/project/python-gettext/) for the translations.
 
 # How does it work?
 First of all, the message is encrypted:
