@@ -67,4 +67,4 @@ msgstr "    Ne povis malĉifri mesaĝon (malĝusta mesaĝo/pasvorto?):"
 
 #: r5steg.py:92
 msgid "Goodbye!"
-msgstr "Adiaŭ!"
+msgstr "Ĝis revido!"
