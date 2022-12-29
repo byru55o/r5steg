@@ -59,7 +59,7 @@ msgid ""
 "[Secret message(s) revealed]:\n"
 msgstr ""
 "\n"
-"[Sekreta mesaĝo(j) rivelis]:\n"
+"[Sekreta(j) mesaĝo(j) rivelis]:\n"
 
 #: r5steg.py:88
 msgid "    Couldn't decrypt message (wrong message/password?):"
