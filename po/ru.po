@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: r5steg.py:62
-msgid "    [1]: Hide a message."
-msgstr "    [1]: Скрыть сообщение."
+msgid ": Hide a message."
+msgstr ": Скрыть сообщение."
 
 #: r5steg.py:63
-msgid "    [2]: View hidden message inside text."
-msgstr "    [2]: Просмотреть скрытое сообщение."
+msgid ": View hidden message inside text."
+msgstr ": Просмотреть скрытое сообщение."
 
 #: r5steg.py:67
 msgid "Enter secret message: "
