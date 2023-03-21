@@ -24,19 +24,19 @@ zwc = [
 
 if cfg_file.is_file():
     parser.read(cfg_file)
-    use_aes = parser.getboolean('settings', 'encrypt', fallback=True)
-    use_colours = parser.getboolean('settings', 'colours', fallback=True)
-    colour_options = parser.getint('colours', 'options', fallback=36)
-    colour_prompt = parser.getint('colours', 'prompt', fallback=33)
-    colour_inputs = parser.getint('colours', 'inputs', fallback=37)
-    colour_important = parser.getint('colours', 'important', fallback=31)
-    colour_success = parser.getint('colours', 'success', fallback=32)
-    colour_separator = parser.getint('colours', 'separator', fallback=37)
-    salt = bytes(
-        parser.get('settings',
-                   'salt',
-                   fallback="\xdc\xebh\x132\x7f\x8cD\xb1U\x1bI\xfa\x1d/i"),
-        'raw_unicode_escape')
+use_aes = parser.getboolean('settings', 'encrypt', fallback=True)
+use_colours = parser.getboolean('settings', 'colours', fallback=True)
+colour_options = parser.getint('colours', 'options', fallback=36)
+colour_prompt = parser.getint('colours', 'prompt', fallback=33)
+colour_inputs = parser.getint('colours', 'inputs', fallback=37)
+colour_important = parser.getint('colours', 'important', fallback=31)
+colour_success = parser.getint('colours', 'success', fallback=32)
+colour_separator = parser.getint('colours', 'separator', fallback=37)
+salt = bytes(
+    parser.get('settings',
+               'salt',
+               fallback="\xdc\xebh\x132\x7f\x8cD\xb1U\x1bI\xfa\x1d/i"),
+    'raw_unicode_escape')
 
 
 def colour_text(colour, text):
