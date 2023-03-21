@@ -14,12 +14,18 @@ It hides and encrypts a message in between plain text using zero-width character
   or to uninstall:
 ```sudo make uninstall```
   
-### Usage
+## Usage
 - Execute the program: `r5steg` or, if you didn't install: `./r5steg.py` or `python3 r5steg.py`
 - To encrypt and hide a message: select option **[1]**, enter message to hide,
   enter the plain text you want to show and the password for the encryption. The resulting string,
   which is copied to the clipboard contains your secret message which you can decrypt using option **[2]**.
 - To decrypt and unhide a message in between plain text: select option **[2]**, enter the message and the password.
+
+### Configuration
+The configuration file is located in `~/.config/r5steg/r5steg.ini`. I suggest copying the provided example_config.ini with this command:
+```bash
+mkdir -p ~/.config/r5steg && cp example_config.ini ~/.config/r5steg/r5steg.ini
+```
 
 # Requirements
 - **Python 3** (3.10.8 was used but should work with any)
