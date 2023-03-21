@@ -22,9 +22,9 @@ It hides and encrypts a message in between plain text using zero-width character
 - To decrypt and unhide a message in between plain text: select option **[2]**, enter the message and the password.
 
 ### Configuration
-The configuration file is located in `~/.config/r5steg/r5steg.ini`. I suggest copying the provided example_config.ini with this command:
+The configuration file is located in `~/.config/r5steg/config.ini`. I suggest copying the provided `example_config.ini` with this command:
 ```bash
-mkdir -p ~/.config/r5steg && cp example_config.ini ~/.config/r5steg/r5steg.ini
+mkdir -p ~/.config/r5steg && cp example_config.ini ~/.config/r5steg/config.ini
 ```
 
 # Requirements
