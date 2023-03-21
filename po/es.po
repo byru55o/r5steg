@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: r5steg.py:62
-msgid "    [1]: Hide a message."
-msgstr "    [1]: Esconde el mensaje."
+msgid ": Hide a message."
+msgstr ": Esconder un mensaje."
 
 #: r5steg.py:63
-msgid "    [2]: View hidden message inside text."
-msgstr "    [2]: Ver el mensjae oculto en el texto."
+msgid ": View hidden message inside text."
+msgstr ": Descifrar un mensjae oculto."
 
 #: r5steg.py:67
 msgid "Enter secret message: "
@@ -31,7 +31,7 @@ msgstr "Introduce el mensaje secreto: "
 
 #: r5steg.py:68
 msgid "Enter text where the message should be hidden: "
-msgstr "Introduce el texto donde debe ocultarse el mensaje: "
+msgstr "Introduce el texto donde se ocultará el mensaje: "
 
 #: r5steg.py:69 r5steg.py:82
 msgid "Enter password for encryption: "
@@ -39,7 +39,7 @@ msgstr "Introduce la contraseña para la encriptación: "
 
 #: r5steg.py:72
 msgid "[Hidden Message inside initial string]: "
-msgstr "[Mensaje oculto dentro de la cadena inicial]: "
+msgstr "[Mensaje oculto dentro del texto]: "
 
 #: r5steg.py:75
 msgid "The result has been copied to clipboard!"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: r5steg.py:88
 msgid "    Couldn't decrypt message (wrong message/password?):"
-msgstr "    No se pudo descifrar el mensaje (mensaje equivocado/contraseña?):"
+msgstr "    No se pudo descifrar el mensaje (mensaje equivocado/contraseña incorrecta?):"
 
 #: r5steg.py:92
 msgid "Goodbye!"
