@@ -22,10 +22,12 @@ It hides and encrypts a message in between plain text using zero-width character
 - To decrypt and unhide a message in between plain text: select option **[2]**, enter the message and the password.
 
 ### Configuration
+**It is possible to change some options** such as encryption (some of you may prefer to disable it, for a shorter/lighter hidden message) or colours (you can either disable or modify them).
 The configuration file is located in `~/.config/r5steg/config.ini`. I suggest copying the provided `example_config.ini` with this command:
 ```bash
 mkdir -p ~/.config/r5steg && cp example_config.ini ~/.config/r5steg/config.ini
 ```
+More options are going to be added in the future: choosing binary (or other bases) or changing the zero-width characters in the config file are some examples from the top of my head!
 
 # Requirements
 - **Python 3** (3.10.8 was used but should work with any)
