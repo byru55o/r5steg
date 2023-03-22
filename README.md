@@ -31,9 +31,12 @@ mkdir -p ~/.config/r5steg && cp example_config.ini ~/.config/r5steg/config.ini
 - **Python 3** (3.10.8 was used but should work with any)
 - [**pyperclip**](https://pyperclip.readthedocs.io/en/latest/) for auto copy-to-clipboard.
 - [**readline**](https://docs.python.org/3/library/readline.html) for input usability.
+- [**binascii**](https://docs.python.org/3/library/binascii.html) for ASCII character support when encoding.
 - [**pycryptodome**](https://www.pycryptodome.org/) for encryption.
 - [**scrypt**](https://pypi.org/project/scrypt/) for key derivation.
 - [**gettext**](https://pypi.org/project/python-gettext/) for the translations.
+- [**configparser**](https://docs.python.org/3/library/configparser.html) for configuration files.
+- [**pathlib**](https://docs.python.org/3/library/pathlib.html) for better path-handling.
 
 # How does it work?
 First of all, the message is encrypted:
