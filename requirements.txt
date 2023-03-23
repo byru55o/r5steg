@@ -1,0 +1,8 @@
+pyperclip
+readline
+binascii
+pycryptodome
+scrypt
+gettext
+configparser
+pathlib
