@@ -104,4 +104,4 @@ In case of failure the program will prompt the error for every message individua
 
 # Feedback
 I'm up to any kind of feedback, questions, feature requests, etc.  
-Just write [an email](mailto:ru55o@chadirc.xyz)!
+Just write [an email](mailto:r55@vspmail.net)!
