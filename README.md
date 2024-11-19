@@ -1,8 +1,10 @@
 # GUI version for r5steg
 try the [demo](r5steg.vspmail.net/r5steg) .
-## NEW README.MD IN CONSTRUCTION
+### NEW README.MD UNDER CONSTRUCTION
 while waiting you can still read the README for the cli below, it explains how the program works
-### Remember, the only thing that changes is the UI, and the fact that it works in a browser
+#### Remember, the only thing that changes is the UI, and the fact that it works in a browser
+___
+___
 
 # r5steg ![License](https://img.shields.io/github/license/byru55o/r5steg "License") ![Contributors](https://img.shields.io/github/contributors/byru55o/r5steg "Contributors") ![Size](https://img.shields.io/github/repo-size/byru55o/r5steg "Size")
 Encrypted text in text steganography program using zero width space characters.
