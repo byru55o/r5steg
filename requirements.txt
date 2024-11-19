@@ -1,6 +1,4 @@
-pyperclip
+nicegui
 pycryptodome
 scrypt
-python-gettext
-configparser
 pathlib
