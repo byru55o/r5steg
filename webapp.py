@@ -3,7 +3,6 @@ import binascii
 import readline
 import pyperclip
 import scrypt
-import gettext
 from Crypto.Cipher import AES
 
 
