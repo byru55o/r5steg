@@ -1,5 +1,5 @@
 # GUI version for r5steg
-try the [demo](r5steg.vspmail.net/r5steg) .
+try the [demo](https://r5steg.vspmail.net/r5steg) .
 ### NEW README.MD UNDER CONSTRUCTION
 while waiting you can still read the README for the cli below, it explains how the program works
 #### Remember, the only thing that changes is the UI, and the fact that it works in a browser
