@@ -1,52 +1,33 @@
 # GUI version for r5steg
-try the [demo](https://r5steg.vspmail.net/page_layout) .
-### NEW README.MD UNDER CONSTRUCTION
-while waiting you can still read the README for the cli below, it explains how the program works
-#### Remember, the only thing that changes is the UI, and the fact that it works in a browser
+Try the [demo](https://r5steg.vspmail.net/page_layout).
 ___
-___
-
-# r5steg ![License](https://img.shields.io/github/license/byru55o/r5steg "License") ![Contributors](https://img.shields.io/github/contributors/byru55o/r5steg "Contributors") ![Size](https://img.shields.io/github/repo-size/byru55o/r5steg "Size")
-Encrypted text in text steganography program using zero width space characters.
-It hides and encrypts a message in between plain text using zero-width characters which are invisible in most browsers and interfaces.
-## Installation
-- Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
+# Host r5steg web-app at home:
+- Make sure you meet all the [requirements](https://github.com/byru55o/r5steg/tree/GUI-web-app#requirements)
 - Clone the repository and navigate to it's directory:
   ```bash
   git clone https://github.com/byru55o/r5steg.git && cd r5steg
   ```
-- Install it with GNU make:
+- Run the program with python3:
   ```bash
-  sudo make install
+  python3 webapp.py
   ```
-  or to uninstall:
-```sudo make uninstall```
-  
+- Navigate to [127.0.0.1:3443/r5steg](http://127.0.0.1:3443/r5steg) on your browser.
+___  
 ## Usage
-- Execute the program: `r5steg` or, if you didn't install: `./r5steg.py` or `python3 r5steg.py`
-- To encrypt and hide a message: select option **[1]**, enter message to hide,
-  enter the plain text you want to show and the password for the encryption. The resulting string,
-  which is copied to the clipboard contains your secret message which you can decrypt using option **[2]**.
-- To decrypt and unhide a message in between plain text: select option **[2]**, enter the message and the password.
-
-### Configuration
-**It is possible to change some options** such as encryption (some of you may prefer to disable it, for a shorter/lighter hidden message) or colours (you can either disable or modify them).
-The configuration file is located in `~/.config/r5steg/config.ini`. I suggest copying the provided `example_config.ini` with this command:
-```bash
-mkdir -p ~/.config/r5steg && cp example_config.ini ~/.config/r5steg/config.ini
-```
-More options are going to be added in the future: choosing binary (or other bases) or changing the zero-width characters in the config file are some examples from the top of my head!
+- Change the settings according to your needs, you can turn off encryption and change the **salt**, [which is highly recommended](https://github.com/byru55o/r5steg/tree/GUI-web-app#to-change-the-salt)!
+- To encrypt and hide a message: select **[HIDE]** mode, enter message to hide in the textarea at the bottom,
+  enter the plain text you want to show at the top and the password for the encryption.
+  Finally, press the **ENCRYPT AND HIDE** button. The resulting string,
+  which is copied to the clipboard and added to the history (located in the left drawer)
+  contains your secret message, which you can decrypt using mode **[UNHIDE]**.
+- To decrypt and unhide a message in between plain text: select option **[UNHIDE]**, enter the message and the password,
+  and press the **UNHIDE AND DECRYPT**
 
 # Requirements
 - **Python 3** (3.10.8 was used but should work with any)
-- [**pyperclip**](https://pyperclip.readthedocs.io/en/latest/) for auto copy-to-clipboard.
-- [**readline**](https://docs.python.org/3/library/readline.html) for input usability.
 - [**binascii**](https://docs.python.org/3/library/binascii.html) for ASCII character support when encoding.
 - [**pycryptodome**](https://www.pycryptodome.org/) for encryption.
 - [**scrypt**](https://pypi.org/project/scrypt/) for key derivation.
-- [**gettext**](https://pypi.org/project/python-gettext/) for the translations.
-- [**configparser**](https://docs.python.org/3/library/configparser.html) for configuration files.
-- [**pathlib**](https://docs.python.org/3/library/pathlib.html) for better path-handling.
 
 # How does it work?
 First of all, the message is encrypted:
@@ -61,17 +42,16 @@ That's why, for optimal security, it should be changed and stored safely,
 because it has to remain the same value encrypting and decrypting.
 
 #### To change the salt:
-- Find the salt variable at the beginning of the code:
-```python
-salt = b'\xdc\xebh\x132\x7f\x8cD\xb1U\x1bI\xfa\x1d/i'
-```
-- Replace its value with 16 different random bytes (e.g., using urandom function):
+- Find the salt input box in the settings:
+![salt](https://github.com/byru55o/r5steg/blob/GUI-web-app/salt.png)
+- Replace its value with a random string (e.g. generating a random UUID):
 ```python
 python3
->>> import os
->>> os.urandom(16)
-b'\xfaFp6\x0e[\x9e\x9dKM\x80^O\x99\x92\xf9'
+>>> from uuid import uuid4
+>>> print(str(uuid4()))
+36deac9e-b01e-4cf6-be2b-f3f1c63e4851
 ```
+- Remember to store the salt safely, as it is required for the decryption of your message.
 After the encryption, the message looks like this: `f6989326b5198f881e634da623f1af5e2a632540`.  
 The first 32 hex. characters represent the initial vector used, the rest represent the ciphertext,
 which weights the same as the secret message.
