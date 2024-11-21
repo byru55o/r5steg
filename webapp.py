@@ -1,7 +1,5 @@
 from nicegui import ui, events
 import binascii
-import readline
-import pyperclip
 import scrypt
 from Crypto.Cipher import AES
 
@@ -155,15 +153,18 @@ def page_layout():
     with ui.header(elevated=True).style("background-color: #3874c8").classes(
         "items-center justify-between"
     ):
+        ui.button(on_click=lambda: left_drawer.toggle(), icon="history").props(
+            "flat color=white"
+        )  # Toggle history
         ui.markdown("#R5STEG: text in text steganography")
         results = []  # Initialise the result list (history)
-        ui.button(on_click=lambda: right_drawer.toggle(), icon="menu").props(
+        ui.button(on_click=lambda: right_drawer.toggle(), icon="settings").props(
             "flat color=white"
         )  # Toggle settings
     # History
-    with ui.left_drawer(top_corner=True, bottom_corner=True).style(
+    with ui.left_drawer(fixed=False, top_corner=True, bottom_corner=True).style(
         "background-color: #d7e3f4"
-    ):
+    ) as left_drawer:
         ui.markdown("#History")
         history(results)
     # Settings
