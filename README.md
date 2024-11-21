@@ -2,7 +2,7 @@
 Encrypted text in text steganography program using zero width space characters.
 It hides and encrypts a message in between plain text using zero-width characters which are invisible in most browsers and interfaces.
 # [GUI version for r5steg](https://github.com/byru55o/r5steg/tree/GUI-web-app)
-Try the [demo](https://r5steg.vspmail.net/page_layout).
+Try the [demo](https://r5steg.vspmail.net/r5steg).
 ___
 ## Installation
 - Make sure you meet all the [requirements](https://github.com/byru55o/r5steg#requirements), if not install them with [**pip**](https://pypi.org/project/pip/)
