@@ -1,5 +1,5 @@
 # GUI version for r5steg
-Try the [demo](https://r5steg.vspmail.net/page_layout).
+Try the [demo](https://r5steg.vspmail.net/r5steg).
 ___
 # Host r5steg web-app at home:
 - Make sure you meet all the [requirements](https://github.com/byru55o/r5steg/tree/GUI-web-app#requirements)
